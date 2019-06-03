@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5E794013A9841D48EE3D89F /* Pods_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982A55669192CA73E4313E73 /* Pods_Player.framework */; };
 		F50D2DF11F2B7F0700629AD3 /* VisualisationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50D2DF01F2B7F0700629AD3 /* VisualisationHelper.swift */; };
 		F519AE341F2B26870067FE47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519AE071F2B26870067FE47 /* Constants.swift */; };
 		F519AE351F2B26870067FE47 /* PandoraPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519AE091F2B26870067FE47 /* PandoraPlayer.swift */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5671C0AE87959DFF51FCD79A /* Pods-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Player.release.xcconfig"; path = "Target Support Files/Pods-Player/Pods-Player.release.xcconfig"; sourceTree = "<group>"; };
+		95B3BE91B3D63EC10567F3BA /* Pods-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Player.debug.xcconfig"; path = "Target Support Files/Pods-Player/Pods-Player.debug.xcconfig"; sourceTree = "<group>"; };
 		982A55669192CA73E4313E73 /* Pods_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50D2DF01F2B7F0700629AD3 /* VisualisationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualisationHelper.swift; sourceTree = "<group>"; };
 		F519ADF81F2B264D0067FE47 /* Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E794013A9841D48EE3D89F /* Pods_Player.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +88,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E85E6F1D34610CE966FF0645 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95B3BE91B3D63EC10567F3BA /* Pods-Player.debug.xcconfig */,
+				5671C0AE87959DFF51FCD79A /* Pods-Player.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F519ADEE1F2B264D0067FE47 = {
 			isa = PBXGroup;
 			children = (
 				F519ADFA1F2B264D0067FE47 /* Player */,
 				F519ADF91F2B264D0067FE47 /* Products */,
 				9D0771A356538C5A28EA8E4B /* Frameworks */,
+				E85E6F1D34610CE966FF0645 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,11 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F519AE001F2B264D0067FE47 /* Build configuration list for PBXNativeTarget "Player" */;
 			buildPhases = (
+				E115406C28F820AA4A8553E2 /* [CP] Check Pods Manifest.lock */,
 				F519ADF31F2B264D0067FE47 /* Sources */,
 				F519ADF41F2B264D0067FE47 /* Frameworks */,
 				F519ADF51F2B264D0067FE47 /* Headers */,
 				F519ADF61F2B264D0067FE47 /* Resources */,
-				30ED4FEC6CCE659F8C29C843 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +338,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -355,19 +370,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30ED4FEC6CCE659F8C29C843 /* [CP] Copy Pods Resources */ = {
+		E115406C28F820AA4A8553E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Player-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Player/Pods-Player-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -465,6 +487,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -517,6 +540,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -526,6 +550,7 @@
 		};
 		F519AE011F2B264D0067FE47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95B3BE91B3D63EC10567F3BA /* Pods-Player.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -540,13 +565,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikeySolutions.Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F519AE021F2B264D0067FE47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5671C0AE87959DFF51FCD79A /* Pods-Player.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -561,7 +587,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.applikeySolutions.Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
